@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24405788",
     "current_version": 3,
-    "doi": null,
+    "doi": "10.5281/zenodo.24405789",
     "lean_source": {
       "revision": "0b9787cf2582188d0ab3da380adab3fa26bea39c",
       "url": "https://github.com/the-omega-institute/trureturing/blob/0b9787cf2582188d0ab3da380adab3fa26bea39c/D5/S1/Recurrence/Algebraic/MatharA174193OrderFourRecurrence.lean"
