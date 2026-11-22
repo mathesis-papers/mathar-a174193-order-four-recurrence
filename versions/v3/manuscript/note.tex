@@ -1,0 +1,394 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,allcolors=blue,breaklinks=true]{hyperref}
+\usepackage{xurl}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\cb}[1]{\binom{2#1}{#1}}
+\title{Mathar's recurrence in OEIS A174193\\
+\large FORMULA, 14 June 2016: a tableau-sum evaluation\\
+extending Brignall--Ekhad--Smith--Vatter (2009)}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{4 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We extend the enumeration of Brignall, Ekhad, Smith and Vatter (2009)
+by proving the order-four recurrence conjectured by R.\ J.\ Mathar in
+OEIS A174193, FORMULA, 14 June 2016, and evaluating their tableau sum.
+A central-binomial closed form reduces the
+recurrence to an explicit polynomial identity. The same calculation proves
+Mathar's recurrence in the cross-referenced entry A174195 for $n\geq4$,
+so both recurrences hold for the corresponding permutation counts.
+An exact positive difference proves the inequality preceding Problem~10
+of Brignall, Ekhad, Smith and Vatter. As a consequence of this inequality,
+equal lexicographic ranks give a length-preserving injection.
+\end{abstract}
+
+\section{The series and its coefficients}
+In the FORMULA section of A174193, Mathar conjectured a recurrence for the
+coefficients of the following series \cite{oeis193}:
+\begin{align}
+ A(x)&=\frac{P(x)-B(x)\sqrt{1-4x}}{2x^2(1-x)(1-4x)^2}
+       =\sum_{n\geq0}a_nx^n,\label{eq:series}\\
+ P(x)&=1-8x+13x^2+24x^3-48x^4,\notag\\
+ B(x)&=1-6x+x^2+34x^3-26x^4-4x^5.\notag
+\end{align}
+All series are over $\mathbb Q$, and the square root has constant term one.
+Brignall, Ekhad, Smith and Vatter give this generating function as an
+empirical candidate at the end of Section~2 of \cite{almost}; their
+Proposition~3 and the subsequent hook-length calculation give a tableau
+characterization and a finite sum for the actual almost-$321$-avoiding permutation counts.
+Theorem~\ref{thm:counting} evaluates that sum and identifies it with
+\eqref{eq:series}.
+The differential-equation approach to recurrences for algebraic series is
+classical \cite[Theorems~1.5 and 2.1]{stanley}; Mathar gives explicit constructions
+for generating functions involving polynomial roots \cite{mathar}.
+
+Put
+\[
+ F(t)=t^4-5t^3+10t^2+14t-8,\qquad C_n=\binom{2n}{n}.
+\]
+\begin{theorem}\label{thm:main}
+There is a unique series $A\in\mathbb Q[[x]]$ satisfying
+\eqref{eq:series}, and its coefficients are
+\begin{equation}
+ a_n=\frac{F(n)C_n}{2(n+1)(n+2)(2n-1)}-1\qquad(n\geq0).\label{eq:closed}
+\end{equation}
+For every integer $n\geq4$ they satisfy Mathar's recurrence
+\begin{align}
+0={}&-(n+2)(404489n-1866368)a_n\notag\\
+&+(3147815n^2-8680082n-14098754)a_{n-1}\notag\\
+&+2(-2336439n^2+652022n+14514849)a_{n-2}\notag\\
+&+8(-1044770n^2+10585023n-20370553)a_{n-3}\notag\\
+&+8(642982n-2004177)(2n-9)a_{n-4}.\label{eq:recurrence}
+\end{align}
+\end{theorem}
+\begin{proof}
+The root $s$ with $s(0)=1$ and $s^2=1-4x$ exists by the formal binomial
+series and is unique: the sum of two such roots has constant term two and
+is a unit. The first two coefficients of $P-Bs$ vanish. After division by
+$x^2$, the remaining denominator $2(1-x)(1-4x)^2$ is a unit. This proves
+existence and uniqueness in $\mathbb Q[[x]]$; in particular the displayed
+division by $x^2$ does not introduce negative powers.
+
+The identities
+\[
+ P=(1-3x^2)(1-4x)^2,\qquad
+ -B=(1-x)(-1+5x+4x^2-30x^3-4x^4)
+\]
+give the useful Laurent-series decomposition
+\begin{equation}
+ A=-\frac1{1-x}+\frac1{2x}+\frac1{2x^2}
+ +\left(-\frac1{2x^2}+\frac5{2x}+2-15x-2x^2\right)(1-4x)^{-3/2}.
+ \label{eq:decomposition}
+\end{equation}
+The binomial theorem gives
+$[x^j](1-4x)^{-3/2}=(2j+1)C_j=:c_j$ for $j\geq0$.
+Set $c_j=0$ for $j<0$. Extracting coefficients from
+\eqref{eq:decomposition} yields
+\[
+ a_n=-1-\tfrac12c_{n+2}+\tfrac52c_{n+1}+2c_n-15c_{n-1}-2c_{n-2}.
+\]
+The ratios needed to simplify this expression are
+\begin{equation}
+ \frac{(c_{n-2},c_{n-1},c_n,c_{n+1},c_{n+2})}{C_n}
+ =\left(\frac{n(n-1)}{4(2n-1)},\frac n2,2n+1,
+ \frac{2(2n+1)(2n+3)}{n+1},
+ \frac{4(2n+1)(2n+3)(2n+5)}{(n+1)(n+2)}\right).
+ \label{eq:ratios}
+\end{equation}
+These follow from $C_{n+1}/C_n=2(2n+1)/(n+1)$, including $n=0,1$
+under the stated zero convention. Substitution proves \eqref{eq:closed}.
+
+Let $q_i(n)$ be the five coefficients in \eqref{eq:recurrence}, in
+increasing lag order. Their sum is the zero polynomial, so the constant
+$-1$ in \eqref{eq:closed} contributes zero to the recurrence. For the
+remaining term use
+\[
+ \frac{C_{n-i}}{C_n}=\prod_{j=0}^{i-1}\frac{n-j}{2(2n-2j-1)},
+ \qquad 0\leq i\leq4.
+\]
+After multiplication by
+$M(n)=4(n+1)(2n-1)(2n-3)(2n-5)(2n-7)$, the five summands become
+\begin{align*}
+T_0={}&-2(2n-7)(2n-5)(2n-3)(404489n-1866368)F(n),\\
+T_1={}&(2n-7)(2n-5)(3147815n^2-8680082n-14098754)F(n-1),\\
+T_2={}&-(n+1)(2n-7)(2336439n^2-652022n-14514849)F(n-2),\\
+T_3={}&-2n(n+1)(1044770n^2-10585023n+20370553)F(n-3),\\
+T_4={}&n(n-1)(n+1)(642982n-2004177)F(n-4).
+\end{align*}
+Expansion gives $T_0+T_1+T_2+T_3+T_4=0$: all coefficients in degrees
+$0$ through $8$ vanish. Since $M(n)\ne0$ for $n\geq4$, this proves
+\eqref{eq:recurrence}. The accompanying \texttt{verify.py} checks this
+polynomial identity by integer coefficient arithmetic.
+\end{proof}
+
+\begin{corollary}\label{cor:first}
+The same coefficients satisfy the first-order relation
+\[
+ (n+3)F(n)(a_{n+1}+1)
+ =2(2n-1)F(n+1)(a_n+1)\qquad(n\geq0).
+\]
+\end{corollary}
+\begin{proof}
+Insert \eqref{eq:closed} and the ratio $C_{n+1}/C_n$ above.
+This proof uses no division by $F(n)$.
+\end{proof}
+
+\section{Evaluating the tableau sum}
+Write $\operatorname{Av}_n(\beta)^{+1}$ for the permutations of length $n$
+from which at most one entry can be deleted to leave a $\beta$-avoider.
+For a number $z$, write $(z)_{\underline r}=z(z-1)\cdots(z-r+1)$,
+with $(z)_{\underline0}=1$.
+\begin{theorem}\label{thm:counting}
+For every $n\geq0$, the number
+$h_n=|\operatorname{Av}_n(321)^{+1}|$ equals $a_n$ in
+\eqref{eq:closed}. Thus \eqref{eq:series} is its counting generating function.
+\end{theorem}
+\begin{proof}
+Proposition~3 and the hook-length calculation in Section~2 of
+\cite{almost} give, for $n\geq2$,
+\begin{equation}
+ h_n=\frac{C_n}{n+1}+\sum_{k=\lfloor n/2\rfloor}^{n-2}
+ \left(\frac{n!(2k-n+2)}{(k+2)k!(n-k)(n-k-2)!}\right)^2.
+ \label{eq:hook}
+\end{equation}
+Put $N=n+2$ and $j=n-k$. The summand before squaring becomes
+\[
+ \frac{(j-1)(N-j-1)(N-2j)}{N(N-1)}\binom Nj.
+\]
+Its square is unchanged under $j\mapsto N-j$. The terms $j=1,N-1$
+vanish, as does the central term when $N$ is even; the terms $j=0,N$
+each equal one. Therefore, writing
+$w(j)=(j-1)^2(N-j-1)^2(N-2j)^2$, the sum in \eqref{eq:hook} is
+\begin{equation}
+ \frac{1}{2N^2(N-1)^2}\sum_{j=0}^N w(j)\binom Nj^2-1.
+ \label{eq:half-sum}
+\end{equation}
+Vandermonde's identity gives, for $0\leq r\leq3$,
+\begin{equation}
+ \sum_{j=0}^N(j)_{\underline r}(N-j)_{\underline r}\binom Nj^2
+ =(N)_{\underline r}^2\binom{2N-2r}{N}.
+ \label{eq:moments}
+\end{equation}
+Indeed the left side is $(N)_{\underline r}^2$ times
+$\sum_j\binom{N-r}{j-r}\binom{N-r}{j}$; taking the coefficient of
+$x^{N-2r}$ in $(1+x)^{2N-2r}$ proves the identity, with out-of-range
+binomial coefficients interpreted as zero.
+The polynomial identity
+\begin{align*}
+ w(j)={}&N^2(N-1)^2-N^2(N-1)j(N-j)\\
+ &+(N^2-4N+12)(j)_{\underline2}(N-j)_{\underline2}
+       -4(j)_{\underline3}(N-j)_{\underline3}
+\end{align*}
+reduces \eqref{eq:moments} to four terms. Their sum simplifies to
+\begin{equation}
+ \sum_{j=0}^N w(j)\binom Nj^2
+ =\frac{N^2(N-1)^3(N^3-12N^2+48N-60)}
+ {4(2N-5)(2N-3)(2N-1)}\binom{2N}{N}.
+ \label{eq:weighted}
+\end{equation}
+This simplification follows by replacing each binomial coefficient in
+\eqref{eq:moments} by
+$\binom{2N}{N}(N)_{\underline{2r}}/(2N)_{\underline{2r}}$;
+all denominators are nonzero for $N\geq4$.
+Since $\binom{2N}{N}/C_n=4(2n+1)(2n+3)/((n+1)(n+2))$,
+\eqref{eq:hook}--\eqref{eq:weighted} give
+\[
+ h_n=\frac{C_n}{n+1}
+ +\frac{(n^3-6n^2+12n-4)C_n}{2(n+2)(2n-1)}-1=a_n.
+\]
+For $n=0,1$ both counts and \eqref{eq:closed} are one.
+\end{proof}
+
+\section{The cross-referenced series A174195}
+A174193 cross-references A174195, whose FORMULA section contains another
+recurrence conjectured by Mathar on 14 June 2016 \cite{oeis195}. Write
+\begin{align}
+ B_*(x)&=\sum_{n\geq0}b_nx^n
+ =\frac{R(x)-S(x)(1-4x)^{3/2}}{-2x^2(1-4x)^{3/2}},\label{eq:sibling}\\
+ R(x)&=1-5x-6x^2+45x^3-24x^4,\qquad S(x)=1+x-4x^2+x^3.\notag
+\end{align}
+This is the generating function proved in \cite[Theorem~9]{almost} for
+almost-$231$-avoiding permutations.
+\begin{theorem}\label{thm:sibling}
+Put $G(t)=2t^4-9t^3+19t^2+18t-24$. Then $b_0=b_1=1$, and
+\begin{equation}
+ b_n=\frac{G(n)C_n}{4(n+1)(n+2)(2n-1)}\qquad(n\geq2).\label{eq:bclosed}
+\end{equation}
+For $n\geq4$, Mathar's A174195 recurrence holds:
+\begin{align}
+0={}&2(n+2)(2013n^2-10435n+41550)b_n\notag\\
+&+(4026n^3-128025n^2+34955n+59010)b_{n-1}\notag\\
+&-2(2n-5)(20130n^2-110855n+93819)b_{n-2}.\label{eq:brec}
+\end{align}
+The left side is $13998$ at $n=2$ and $57576$ at $n=3$;
+thus $n\geq4$ is the exact range among integers $n\geq2$.
+\end{theorem}
+\begin{proof}
+Rewrite \eqref{eq:sibling} as
+\[
+ B_* =\frac1{2x^2}+\frac1{2x}-2+\frac x2
+ +\left(-\frac1{2x^2}+\frac5{2x}+3-\frac{45}2x+12x^2\right)(1-4x)^{-3/2}.
+\]
+The negative-power coefficients cancel. Coefficient extraction using
+\eqref{eq:ratios} gives, for all $n\geq0$,
+\[
+ b_n=\frac{G(n)C_n}{4(n+1)(n+2)(2n-1)}
+       -2\mathbf1_{n=0}+\tfrac12\mathbf1_{n=1}.
+\]
+For $n\geq4$, all three terms in \eqref{eq:brec} therefore use
+\eqref{eq:bclosed}. Multiply the normalized recurrence by
+$8(n+1)(2n-3)(2n-1)$. Its numerator is
+\begin{align*}
+ &4(2n-3)(2013n^2-10435n+41550)G(n)\\
+ &\quad +(4026n^3-128025n^2+34955n+59010)G(n-1)\\
+ &\quad -(n+1)(20130n^2-110855n+93819)G(n-2)=0.
+\end{align*}
+All coefficients in degrees $0$ through $7$ vanish. The multiplier is
+nonzero in this range, proving the recurrence. At $n=2,3$, substitute
+$(b_0,b_1,b_2,b_3)=(1,1,2,6)$ to obtain the stated residuals.
+\end{proof}
+
+\begin{corollary}\label{cor:bfirst}
+For every $n\geq2$,
+\[
+ (n+3)G(n)b_{n+1}=2(2n-1)G(n+1)b_n.
+\]
+\end{corollary}
+\begin{proof}
+Substitute \eqref{eq:bclosed} and $C_{n+1}/C_n=2(2n+1)/(n+1)$.
+\end{proof}
+
+\begin{corollary}\label{cor:difference}
+For $n\geq2$,
+\[
+ b_n-a_n=1+\frac{n-4}{4(2n-1)}\binom{2n}{n}.
+\]
+In particular
+$|\operatorname{Av}_n(231)^{+1}|>|\operatorname{Av}_n(321)^{+1}|$
+for $n\geq4$. Both sequences satisfy
+$a_n\sim b_n\sim 4^{n-1}\sqrt{n/\pi}$, and
+\[
+ b_n-a_n\sim\frac{4^n}{8\sqrt{\pi n}},\qquad
+ \lim_{n\to\infty}n\frac{b_n-a_n}{b_n}=\frac12.
+\]
+\end{corollary}
+\begin{proof}
+Subtract \eqref{eq:closed} from \eqref{eq:bclosed} and use
+$G(n)-2F(n)=(n+1)(n+2)(n-4)$. Positivity is immediate for $n\geq4$.
+For the asymptotics, Stirling's formula gives $C_n\sim4^n/\sqrt{\pi n}$,
+and each rational prefactor in \eqref{eq:closed} and \eqref{eq:bclosed}
+is asymptotic to $n/4$. The constant $-1$ is negligible.
+The exact difference has central-binomial prefactor tending to $1/8$,
+which gives the last two assertions.
+\end{proof}
+
+\begin{corollary}\label{cor:injection}
+There is a length-preserving injection from
+$\operatorname{Av}(321)^{+1}$ to $\operatorname{Av}(231)^{+1}$:
+send the $r$th lexicographically ordered member of
+$\operatorname{Av}_n(321)^{+1}$ to the $r$th member of
+$\operatorname{Av}_n(231)^{+1}$.
+\end{corollary}
+\begin{proof}
+For $n\leq3$ both classes contain every permutation of length $n$.
+For $n\geq4$ Corollary~\ref{cor:difference} gives the required cardinality
+inequality. Each ordered list is finite and can be constructed by testing
+all permutations for avoidance after each single deletion, so the map
+is defined and injective at every length. Its definition preserves length.
+\end{proof}
+This cardinality-induced rank injection does not provide the combinatorial
+explanation sought in \cite[Problem~10]{almost}.
+
+\begin{corollary}\label{cor:conjecture11}
+Conjecture~11 of \cite{almost} holds for $t=1$: both almost-avoidance
+generating functions are rational in $x$ and $\sqrt{1-4x}$.
+\end{corollary}
+\begin{proof}
+Use Theorem~\ref{thm:counting} and \cite[Theorem~9]{almost}.
+The case $t=0$ is the classical Catalan case, with generating function
+$(1-\sqrt{1-4x})/(2x)$ for both avoidance classes.
+\end{proof}
+
+\section{Coverage and verification}
+\begin{center}\small
+\begin{tabular}{p{.40\linewidth}p{.52\linewidth}}
+\toprule
+Source statement & Coverage\\\midrule
+A174193, FORMULA, 14 June 2016 & Proved: Theorem~\ref{thm:main}, every $n\geq4$, now also for the permutation counts.\\
+A174195, FORMULA, 14 June 2016 & Proved for $n\geq4$; nonzero residuals at $n=2,3$ show $n\geq4$ is the exact range.\\
+A174195, asymptotic formula, 23 August 2014 & Proved: Corollary~\ref{cor:difference}, including the A174193 analogue and relative gap.\\
+\cite{almost}, Section 2, empirical generating function & Proved: Theorem~\ref{thm:counting} evaluates its tableau sum for every $n$.\\
+\cite{almost}, Theorem 9 & Prior proof cited: Brignall--Ekhad--Smith--Vatter (2009), the A174195 counting generating function; its closed form is deduced in Theorem~\ref{thm:sibling}.\\
+\cite{almost}, inequality before Problem 10 & Proved: the exact count difference is positive for $n\geq4$.\\
+\cite{almost}, Problem 10 & Not covered (only the cardinality-induced rank injection is given).\\
+\cite{almost}, Conjecture 11 & Proved for $t=1$ (Corollary~\ref{cor:conjecture11}); $t=0$ is the classical Catalan case; $t\geq2$ not covered.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The pinned Lean source contains the declaration
+\begin{quote}\ttfamily\raggedright
+D5.S1.Recurrence.Algebraic.\\
+MatharA174193OrderFourRecurrence.result
+\end{quote}
+It proves existence of the
+source series and \eqref{eq:recurrence} for every series satisfying
+$s(0)=1$, $s^2=1-4x$, and the cleared equation
+$2x^2(1-x)(1-4x)^2A=P-Bs$, for every natural $n\geq4$.
+Its exact source is
+\href{https://github.com/the-omega-institute/trureturing/blob/0b9787cf2582188d0ab3da380adab3fa26bea39c/D5/S1/Recurrence/Algebraic/MatharA174193OrderFourRecurrence.lean}{\texttt{MatharA174193OrderFourRecurrence.lean}}
+at revision \texttt{0b9787cf2582188d0ab3da380adab3fa26bea39c}.
+Its imported Euler identity is
+$[x^d](x f')=d[x^d]f$ for every $f\in\mathbb Q[[x]]$ and $d\geq0$,
+the declaration
+\begin{quote}\ttfamily\raggedright
+D5.S1.Recurrence.\\A308815DFiniteRecurrence.euler\_coeff
+\end{quote}
+in the pinned
+\href{https://github.com/the-omega-institute/trureturing/blob/0b9787cf2582188d0ab3da380adab3fa26bea39c/D5/S1/Recurrence/A308815DFiniteRecurrence.lean}{\texttt{A308815DFiniteRecurrence.lean}}.
+The closed forms, first-order relations, tableau-sum evaluation, A174195
+recurrence, comparison, rank injection and $t=0,1$ consequences
+are the written proofs given here; they are not assertions of that
+\texttt{result} declaration.
+
+The standard-library checker \texttt{verify.py} expands the polynomial
+identities in the decompositions, recurrence arguments, coefficient
+comparison and weighted Vandermonde calculation.
+It independently expands each defining algebraic series through
+$x^{200}$, compares all 30 displayed coefficients of each OEIS entry,
+checks the two closed forms for $0\leq n\leq200$, the first-order relation
+for $0\leq n\leq199$, the A174195 first-order relation for $2\leq n\leq199$,
+and both conjectured recurrences for $4\leq n\leq200$.
+It compares the tableau sum through $n=200$, enumerates both almost-avoidance
+classes by deletion through $n=8$, and checks the rank injection on those lists.
+These finite sequence comparisons supplement the universal written proofs.
+
+\begin{thebibliography}{9}
+\bibitem{oeis193} N.\ J.\ A. Sloane, entry A174193, \emph{The On-Line
+Encyclopedia of Integer Sequences}, 2010; recurrence by R.\ J.\ Mathar,
+FORMULA, 14 June 2016. \url{https://oeis.org/A174193}.
+\bibitem{almost} R. Brignall, S.\ B. Ekhad, R. Smith and V. Vatter,
+Almost avoiding permutations, \emph{Discrete Mathematics} \textbf{309}
+(2009), 6626--6631. \href{https://doi.org/10.1016/j.disc.2009.06.027}{doi:10.1016/j.disc.2009.06.027}.
+Text: \href{https://arxiv.org/abs/2007.15111v1}{arXiv:2007.15111v1}.
+\bibitem{stanley} R.\ P. Stanley, Differentiably finite power series,
+\emph{European Journal of Combinatorics} \textbf{1} (1980), 175--188.
+\href{https://doi.org/10.1016/S0195-6698(80)80051-5}{doi:10.1016/S0195-6698(80)80051-5}.
+\bibitem{mathar} R.\ J. Mathar, P-finite recurrences from generating
+functions with roots of polynomials, 2021.
+\href{https://arxiv.org/abs/2109.02112v1}{arXiv:2109.02112v1}, Sections 2 and 4.
+\bibitem{oeis195} N.\ J.\ A. Sloane, entry A174195, \emph{The On-Line
+Encyclopedia of Integer Sequences}, 2010; recurrence by R.\ J.\ Mathar,
+FORMULA, 14 June 2016. \url{https://oeis.org/A174195}.
+\end{thebibliography}
+\noindent\small \copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0),
+\url{https://creativecommons.org/licenses/by/4.0/}.
+\end{document}

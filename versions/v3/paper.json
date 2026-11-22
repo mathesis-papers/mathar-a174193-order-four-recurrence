@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 95612,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "c37280c61d0c958e6b9da36a742886e37df2ca83f80268bf5862e8b837d824d6",
+      "sha256": "c37280c61d0c958e6b9da36a742886e37df2ca83f80268bf5862e8b837d824d6"
+    },
+    "source": {
+      "bytes": 15954,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "93437b7e29126f57d099e737a5639e16fb5fa71e3b455013cd7a0eee52791b51",
+      "sha256": "93437b7e29126f57d099e737a5639e16fb5fa71e3b455013cd7a0eee52791b51"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "We extend the enumeration of Brignall, Ekhad, Smith and Vatter (2009) by proving the order-four recurrence conjectured by R. J. Mathar in OEIS A174193, FORMULA, 14 June 2016, and evaluating their tableau sum. A central-binomial closed form reduces the recurrence to an explicit polynomial identity. The same calculation proves Mathar's recurrence in the cross-referenced entry A174195 for n >= 4, so both recurrences hold for the corresponding permutation counts. An exact positive difference proves the inequality preceding Problem 10 of Brignall, Ekhad, Smith and Vatter. As a consequence of this inequality, equal lexicographic ranks give a length-preserving injection.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 3,
+    "doi": null,
+    "lean_source": {
+      "revision": "0b9787cf2582188d0ab3da380adab3fa26bea39c",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/0b9787cf2582188d0ab3da380adab3fa26bea39c/D5/S1/Recurrence/Algebraic/MatharA174193OrderFourRecurrence.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 95612,
+      "sha256": "c37280c61d0c958e6b9da36a742886e37df2ca83f80268bf5862e8b837d824d6",
+      "url": "/api/v1/collected-papers/mathar-a174193-order-four-recurrence/files/pdf?version=3"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-22T10:29:44.649188517Z",
+    "record": "mathar-a174193-order-four-recurrence",
+    "repository_name": "mathar-a174193-order-four-recurrence",
+    "source": {
+      "bytes": 15954,
+      "sha256": "93437b7e29126f57d099e737a5639e16fb5fa71e3b455013cd7a0eee52791b51",
+      "url": "/api/v1/collected-papers/mathar-a174193-order-four-recurrence/files/source?version=3"
+    },
+    "title": "Mathar's recurrence in OEIS A174193: FORMULA, 14 June 2016: a tableau-sum evaluation extending Brignall–Ekhad–Smith–Vatter (2009)",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-22T10:29:44.649188517Z",
+        "revision": "3",
+        "version": 3
+      }
+    ],
+    "work": "mathar-a174193-order-four-recurrence"
+  }
+}

@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Mathar's recurrence in OEIS A174193: FORMULA, 14 June 2016: a tableau-sum evaluation extending Brignall–Ekhad–Smith–Vatter (2009)"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-22"
+version: "3"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/mathar-a174193-order-four-recurrence?version=3"
+license: "CC-BY-4.0"

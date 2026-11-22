@@ -1,0 +1,15 @@
+{
+  "id": "mathar-a174193-order-four-recurrence",
+  "revision": 3,
+  "problem_ids": ["mathar-a174193-order-four-recurrence"],
+  "topic": "Mathar's polynomial-coefficient recurrences in OEIS A174193 and its cross-reference A174195, FORMULA, 14 June 2016",
+  "title": "Mathar's recurrence in OEIS A174193: FORMULA, 14 June 2016: a tableau-sum evaluation extending Brignall–Ekhad–Smith–Vatter (2009)",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "We extend the enumeration of Brignall, Ekhad, Smith and Vatter (2009) by proving the order-four recurrence conjectured by R. J. Mathar in OEIS A174193, FORMULA, 14 June 2016, and evaluating their tableau sum. A central-binomial closed form reduces the recurrence to an explicit polynomial identity. The same calculation proves Mathar's recurrence in the cross-referenced entry A174195 for n >= 4, so both recurrences hold for the corresponding permutation counts. An exact positive difference proves the inequality preceding Problem 10 of Brignall, Ekhad, Smith and Vatter. As a consequence of this inequality, equal lexicographic ranks give a length-preserving injection.",
+  "summary": "Extending Brignall, Ekhad, Smith and Vatter (2009), a weighted Vandermonde evaluation identifies A174193 with the actual almost-321-avoiding permutation counts. Central-binomial formulas prove both recurrences for n >= 4, first-order relations, the exact count difference b_n-a_n = 1 + (n-4) binomial(2n,n)/(4(2n-1)) for n >= 2, common asymptotics and relative gap 1/(2n). The cardinality-induced rank injection is a consequence of the inequality; the combinatorial explanation sought in Problem 10 is not covered. Nonzero A174195 residuals at n=2,3 establish the exact recurrence range n >= 4. Conjecture 11 is proved for t=1; t=0 is the classical Catalan case and t >= 2 is not covered.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/0b9787cf2582188d0ab3da380adab3fa26bea39c/D5/S1/Recurrence/Algebraic/MatharA174193OrderFourRecurrence.lean"
+}

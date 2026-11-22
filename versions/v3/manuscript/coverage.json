@@ -1,0 +1,22 @@
+{
+  "verification": {
+    "lean_declaration": "D5.S1.Recurrence.Algebraic.MatharA174193OrderFourRecurrence.result",
+    "lean_scope": "Existence of the specified algebraic source series and the universal A174193 recurrence for every natural index n >= 4.",
+    "lean_dependency": "D5.S1.Recurrence.A308815DFiniteRecurrence.euler_coeff: [x^d](x f') = d [x^d]f for every rational formal series f and natural d.",
+    "written_scope": "Closed forms, first-order relations, tableau-sum evaluation and counting identification, A174195 recurrence, exact count comparison, asymptotics, lexicographic rank injection and the t=0,1 cases of Conjecture 11.",
+    "finite_scope": "Nine polynomial identities; two formal-series expansions and closed forms through index 200; 197 checks of each original recurrence; 200 A174193 and 198 A174195 first-order checks; 201 tableau-sum comparisons; deletion enumeration and rank-injection checks through length 8; 30 displayed terms of each OEIS entry.",
+    "checker": "verify.py",
+    "output": "verification.json"
+  },
+  "related_source_items": [
+    {"source": "https://oeis.org/A174193", "locator": "FORMULA, R. J. Mathar, 14 June 2016", "status": "proved", "coverage": "Order-four recurrence for every n >= 4, including actual almost-321-avoiding permutation counts."},
+    {"source": "https://oeis.org/A174195", "locator": "FORMULA, R. J. Mathar, 14 June 2016", "status": "proved", "coverage": "Proved for n >= 4; nonzero residuals at n=2,3 (13998 and 57576) show n >= 4 is the exact range among integers n >= 2. The entry specifies no starting index."},
+    {"source": "https://oeis.org/A174195", "locator": "FORMULA, Vaclav Kotesovec, 23 August 2014", "status": "proved", "coverage": "The stated asymptotic follows from the closed form; the corresponding A174193 asymptotic and relative count gap follow as well."},
+    {"source": "https://arxiv.org/abs/2007.15111v1", "locator": "Section 2, empirical generating function, PDF page 4", "status": "proved", "coverage": "A four-moment Vandermonde evaluation of the cited tableau sum establishes the counting identification for every n >= 0."},
+    {"source": "https://arxiv.org/abs/2007.15111v1", "locator": "Theorem 9, PDF page 7", "status": "prior proof cited", "coverage": "Brignall, Ekhad, Smith and Vatter proved the A174195 counting generating function in the 2009 journal article; its 2020 arXiv deposit is the same work."},
+    {"source": "https://arxiv.org/abs/2007.15111v1", "locator": "Strict inequality preceding Problem 10, PDF page 8", "status": "proved", "coverage": "Exact positive count difference for n >= 4."},
+    {"source": "https://arxiv.org/abs/2007.15111v1", "locator": "Problem 10 and its preceding request for a combinatorial explanation, PDF page 8", "status": "not covered", "coverage": "Not covered (only the cardinality-induced rank injection is given). The rank map follows from the count inequality, not a structural combinatorial correspondence."},
+    {"source": "https://arxiv.org/abs/2007.15111v1", "locator": "Conjecture 11, PDF page 8, t=1", "status": "proved", "coverage": "Proved for t=1; t=0 is the classical Catalan case."},
+    {"source": "https://arxiv.org/abs/2007.15111v1", "locator": "Conjecture 11, t >= 2", "status": "not covered", "coverage": "No claim for t >= 2 is established."}
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "status": "all_checks_passed",
+  "polynomial_identities": {
+    "A174193_cleared_recurrence": [
+      0
+    ],
+    "A174195_cleared_recurrence": [
+      0
+    ],
+    "A174193_weight_sum": [
+      0
+    ],
+    "A174193_rational_decomposition": [
+      0
+    ],
+    "A174193_square_root_decomposition": [
+      0
+    ],
+    "coefficient_difference_factorization": [
+      0
+    ],
+    "weighted_Vandermonde_polynomial_expansion": [
+      0
+    ],
+    "weighted_Vandermonde_rational_identity": [
+      0
+    ],
+    "tableau_closed_form_simplification": [
+      0
+    ]
+  },
+  "generating_function_coefficients": {
+    "range": [
+      0,
+      200
+    ],
+    "count_each": 201
+  },
+  "closed_form_checks_each": 201,
+  "first_order_recurrence_checks": 200,
+  "sibling_first_order_recurrence_checks": 198,
+  "tableau_sum_checks": {
+    "range": [
+      0,
+      200
+    ],
+    "count": 201
+  },
+  "deletion_enumeration_and_rank_injection": [
+    {
+      "n": 0,
+      "almost_321": 1,
+      "almost_231": 1,
+      "rank_images": 1
+    },
+    {
+      "n": 1,
+      "almost_321": 1,
+      "almost_231": 1,
+      "rank_images": 1
+    },
+    {
+      "n": 2,
+      "almost_321": 2,
+      "almost_231": 2,
+      "rank_images": 2
+    },
+    {
+      "n": 3,
+      "almost_321": 6,
+      "almost_231": 6,
+      "rank_images": 6
+    },
+    {
+      "n": 4,
+      "almost_321": 23,
+      "almost_231": 24,
+      "rank_images": 23
+    },
+    {
+      "n": 5,
+      "almost_321": 103,
+      "almost_231": 111,
+      "rank_images": 103
+    },
+    {
+      "n": 6,
+      "almost_321": 488,
+      "almost_231": 531,
+      "rank_images": 488
+    },
+    {
+      "n": 7,
+      "almost_321": 2320,
+      "almost_231": 2519,
+      "rank_images": 2320
+    },
+    {
+      "n": 8,
+      "almost_321": 10867,
+      "almost_231": 11726,
+      "rank_images": 10867
+    }
+  ],
+  "coefficient_difference_checks": 199,
+  "order_four_recurrence": {
+    "range": [
+      4,
+      200
+    ],
+    "count": 197
+  },
+  "sibling_recurrence": {
+    "range": [
+      4,
+      200
+    ],
+    "count": 197,
+    "residuals_below_range": {
+      "2": 13998,
+      "3": 57576
+    }
+  },
+  "OEIS_coefficients": {
+    "A174193": 30,
+    "A174195": 30
+  },
+  "coverage": "Polynomial coefficient identities support the written proofs; sequence comparisons are finite checks."
+}
