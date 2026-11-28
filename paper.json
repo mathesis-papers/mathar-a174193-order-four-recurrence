@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24405788",
     "current_version": 3,
     "doi": "10.5281/zenodo.24405789",
+    "kind": "note",
     "lean_source": {
       "revision": "0b9787cf2582188d0ab3da380adab3fa26bea39c",
       "url": "https://github.com/the-omega-institute/trureturing/blob/0b9787cf2582188d0ab3da380adab3fa26bea39c/D5/S1/Recurrence/Algebraic/MatharA174193OrderFourRecurrence.lean"
@@ -55,10 +56,12 @@
     "title": "Mathar's recurrence in OEIS A174193: FORMULA, 14 June 2016: a tableau-sum evaluation extending Brignall–Ekhad–Smith–Vatter (2009)",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-22T10:29:44.649188517Z",
         "revision": "3",
-        "version": 3
+        "version": 3,
+        "version_label": null
       }
     ],
     "work": "mathar-a174193-order-four-recurrence"
